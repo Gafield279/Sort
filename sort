@@ -1,0 +1,38 @@
+public class Sort {
+
+    public static void insertionSort(int[] intArr) {
+        int k;
+        for (int i = 0; i < intArr.length; i++) {
+            for (int j = intArr.length-1; j > 0; j--) {
+                if (intArr[j-1] > intArr[j]) {
+                    k = intArr[j];
+                    intArr[j] = intArr[j - 1];
+                    intArr[j - 1] = k;
+                }
+            }
+        }
+        printArray(intArr);
+    }
+
+    static void printArray(int array[]){
+        if(array.length == 0){
+            System.out.println("[ ]");
+            return;
+        }
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + ", ");
+        }
+        System.out.println("\n");
+    }
+
+    public static void main(String[] args){
+        int[] intArr = { 16, 23, 14, 7, 21, 20, 6, 1, 17, 13, 12, 9, 3, 19 };
+        int[] insSorArr = intArr;
+        int[] selSorArr = intArr;
+
+        printArray(intArr);
+        insertionSort(insSorArr);
+        System.out.println("-------------------------------------------\n");
+        printArray(selSorArr);
+    }
+}
